@@ -1,7 +1,7 @@
 import { Link, useRouterState } from '@tanstack/react-router';
 import { ReactNode } from 'react';
 import { ModeToggle } from '@/components/mode-toggle';
-import { Home, Hash, Wallet } from 'lucide-react';
+import { Home, Hash, Wallet, Users } from 'lucide-react';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -10,6 +10,7 @@ interface MainLayoutProps {
 const navItems = [
   { to: '/', label: 'Home', icon: Home },
   { to: '/counter', label: 'Counter', icon: Hash },
+  { to: '/checkin', label: 'Conference Room', icon: Users },
   { to: '/wallet-ui', label: 'Wallet', icon: Wallet },
 ] as const;
 

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@midnames/sdk':
+        specifier: ^2.0.0
+        version: 2.0.0(@types/react@19.2.14)(lucide-react@0.517.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@midnight-ntwrk/compact-js':
         specifier: 2.5.0
         version: 2.5.0
@@ -158,6 +161,9 @@ importers:
       '@eddalabs/counter-contract':
         specifier: workspace:*
         version: link:../counter-contract
+      '@midnames/sdk':
+        specifier: ^2.0.0
+        version: 2.0.0(@types/react@19.2.14)(lucide-react@0.517.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-dialog':
         specifier: ^1.1.14
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -246,6 +252,9 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.5.0
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
       tw-animate-css:
         specifier: ^1.3.4
         version: 1.4.0
@@ -831,6 +840,20 @@ packages:
 
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
+
+  '@midnames/sdk@2.0.0':
+    resolution: {integrity: sha512-/U1fuxUIAX01j9eVNlO84gVDoe+p84aFbOkR/2X1O9zw4c4iKjITseuMd9EIZJc52TZpV8etQpvdIZTkj9ss2w==}
+    peerDependencies:
+      lucide-react: '>=0.400.0'
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      lucide-react:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@midnight-ntwrk/compact-js@2.5.0':
     resolution: {integrity: sha512-vCLbndc3GtSTjZE30NtNqINOrrjZ2O/m8q4jCVeyx9t+rTLwwFqGXUOYobKbM34rwfnTz95ZAI6vVixYnarfrA==}
@@ -4983,6 +5006,28 @@ snapshots:
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
+
+  '@midnames/sdk@2.0.0(@types/react@19.2.14)(lucide-react@0.517.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@midnight-ntwrk/compact-js': 2.5.0
+      '@midnight-ntwrk/compact-runtime': 0.15.0
+      '@midnight-ntwrk/ledger-v8': 8.0.3
+      '@midnight-ntwrk/midnight-js-contracts': 4.0.2
+      '@midnight-ntwrk/midnight-js-indexer-public-data-provider': 4.0.2(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@midnight-ntwrk/midnight-js-network-id': 4.0.2
+      '@midnight-ntwrk/wallet-sdk-address-format': 3.1.0
+    optionalDependencies:
+      lucide-react: 0.517.0(react@19.2.4)
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+    transitivePeerDependencies:
+      - '@fastify/websocket'
+      - '@types/react'
+      - bufferutil
+      - crossws
+      - encoding
+      - subscriptions-transport-ws
+      - utf-8-validate
 
   '@midnight-ntwrk/compact-js@2.5.0':
     dependencies:
