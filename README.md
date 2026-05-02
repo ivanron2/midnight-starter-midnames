@@ -5,7 +5,7 @@ This project is built on the Midnight Network.
 
 ## 📦 Prerequisites
 
-- [Node.js](https://nodejs.org/) (v22+) & [npm](https://www.npmjs.com/) (v11+)
+- [Node.js](https://nodejs.org/) (v22+) & [pnpm](https://pnpm.io/) (v10+)
 - [Docker](https://docs.docker.com/get-docker/)
 - [Git LFS](https://git-lfs.com/) (for large files)
 - [Compact](https://docs.midnight.network/relnotes/compact-tools) (Midnight developer tools)
@@ -39,15 +39,15 @@ curl --proto '=https' --tlsv1.2 -LsSf \
 compact update +0.30.0
 ```
 
-### 3️⃣ Install Node.js and docker
-- [Node.js](https://nodejs.org/) & [npm](https://www.npmjs.com/)
+### 3️⃣ Install Node.js, pnpm, and docker
+- [Node.js](https://nodejs.org/) & [pnpm](https://pnpm.io/) (`npm install -g pnpm@10`)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ### 4️⃣ Verify Installation
 ```bash
 # Check versions
 node -v  
-npm -v   
+pnpm -v   
 docker -v
 git lfs version
 compact check  # Should show latest version
@@ -66,8 +66,8 @@ compact check  # Should show latest version
 ### Install Project Dependencies and compile contracts
   ```bash
    # In one terminal (from project root)
-   npm install
-   npm run build
+   pnpm install
+   pnpm run build
    ```
 
 ### Setup Env variables
@@ -82,16 +82,16 @@ compact check  # Should show latest version
 ### Start Development In Preview-Preprod-Mainnet Network or
    ```bash   
    # In one terminal (from project root)
-   npm run dev:frontend
+   pnpm run dev:frontend
    ```
 
 ### Start Development In Undeployed Network
    ```bash   
    # In one terminal (from project root)
-   npm run setup-standalone
+   pnpm run setup-standalone
    
    # In another terminal (from project root)
-   npm run dev:frontend
+   pnpm run dev:frontend
    ```
 
 ## 🌙 Midnames Integration (.night domains)
@@ -130,7 +130,7 @@ The Conference Room demonstrates all of this on top of the existing counter cont
 ### Try it
 
 1. Register your domain at [midnight.domains](https://midnight.domains/) (see above).
-2. `npm run dev:frontend`
+2. `pnpm run dev:frontend`
 3. Open the **Conference Room** tab, connect Lace, type `yourname.night`, and click **Enter**.
 
 ### Quick sanity check (no frontend needed)

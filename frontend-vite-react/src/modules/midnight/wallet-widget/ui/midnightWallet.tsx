@@ -23,7 +23,7 @@ import { MidnightBrowserWallet } from "../api/walletController";
 
 export const MidnightWallet = () => {
   const { open, setOpen, status } = useWallet();
-  const [selectedNetwork, setSelectedNetwork] = useState(networkID.PREVIEW);
+  const [selectedNetwork, setSelectedNetwork] = useState(networkID.PREPROD);
 
   useEffect(() => {
     const networkID =

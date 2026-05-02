@@ -30,6 +30,8 @@ import {
   Trash2,
   Sparkles,
   ShieldAlert,
+  Copy,
+  Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -109,6 +111,8 @@ export const CheckIn = () => {
   const [domainInput, setDomainInput] = useState("");
   const [verification, setVerification] = useState<Verification>({ status: "idle" });
   const [txError, setTxError] = useState<string | null>(null);
+  const [deployedAddress, setDeployedAddress] = useState<string | undefined>(undefined);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setStageFromFlowMessage(providers?.flowMessage);
@@ -132,6 +136,14 @@ export const CheckIn = () => {
   const resetVerification = () => {
     setVerification({ status: "idle" });
     setDomainInput("");
+  };
+
+  const copyAddress = async () => {
+    if (deployedAddress) {
+      await navigator.clipboard.writeText(deployedAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   const handleResolve = async () => {
@@ -210,7 +222,13 @@ export const CheckIn = () => {
 
   const deployNew = async () => {
     try {
-      await onDeploy();
+      const { address } = await onDeploy();
+      if (address) {
+        console.log('=== CONTRACT DEPLOYED ===');
+        console.log('Contract Address:', address);
+        console.log('========================');
+        setDeployedAddress(address);
+      }
     } catch (e) {
       console.error("Deploy failed:", e);
       setTxError("Deploy failed. Check the console and try again.");
@@ -257,6 +275,26 @@ export const CheckIn = () => {
             </div>
           </div>
         </div>
+
+        {deployedAddress && (
+          <Card className="mb-6 border-border/60">
+            <CardContent className="pt-5 pb-5">
+              <div className="flex items-center justify-between mb-1">
+                <p className="text-xs font-medium text-muted-foreground">Deployed to</p>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-6 px-2 text-xs gap-1"
+                  onClick={copyAddress}
+                >
+                  {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                  {copied ? 'Copied!' : 'Copy'}
+                </Button>
+              </div>
+              <p className="text-xs font-mono break-all text-foreground select-all">{deployedAddress}</p>
+            </CardContent>
+          </Card>
+        )}
 
         {!walletConnected && (
           <Card className="mb-6 border-amber-500/30 bg-amber-500/5">

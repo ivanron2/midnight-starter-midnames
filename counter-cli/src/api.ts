@@ -119,7 +119,6 @@ export const deploy = async (
     compiledContract: counterCompiledContract,
     privateStateId: 'counterPrivateState',
     initialPrivateState: privateState,
-    args: [],
   });
   logger.info(`Deployed contract at address: ${counterContract.deployTxData.public.contractAddress}`);
   return counterContract as unknown as DeployedCounterContract;
