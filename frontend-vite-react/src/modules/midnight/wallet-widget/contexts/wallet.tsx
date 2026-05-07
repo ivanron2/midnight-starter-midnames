@@ -182,7 +182,7 @@ export const useWalletStore = (logger?: Logger): WalletContext => {
 
         try {
           const midnightBrowserWalletInstance =
-            await MidnightBrowserWallet.connectToWallet(rdns, networkID, logger);
+            await MidnightBrowserWallet.waitForWalletAndConnect(rdns, networkID, logger);
           setInitialAPI(midnightBrowserWalletInstance.initialAPI);
           setConnectedAPI(midnightBrowserWalletInstance.connectedAPI);
           setError(undefined);
